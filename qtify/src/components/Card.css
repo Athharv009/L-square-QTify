@@ -1,0 +1,36 @@
+.card {
+  background-color: #000; /* keep black background */
+  border-radius: 12px;
+  overflow: hidden;
+  width: 180px; /* adjust size */
+  flex-shrink: 0;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.card-info {
+  padding: 8px;
+  text-align: center;
+}
+
+.follows {
+  display: inline-block;
+  background-color: #111;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}

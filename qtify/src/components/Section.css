@@ -1,0 +1,39 @@
+.section {
+  margin: 20px 0;
+  background: black;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background: black;
+  color: white;
+}
+
+.toggle-btn {
+  color: #3ef33e; /* green as in Figma */
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Carousel (row with scroll or arrows) */
+.carousel-view {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.carousel-view::-webkit-scrollbar {
+  display: none;
+}
+
+/* Grid view (expanded full layout) */
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
