@@ -23,7 +23,7 @@
 /* Carousel (row with scroll or arrows) */
 .carousel-view {
   display: flex;
-  gap: 16px;
+  gap: 2%;
   overflow-x: auto;
   scrollbar-width: none;
 }

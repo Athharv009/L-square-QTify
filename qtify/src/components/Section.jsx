@@ -20,7 +20,7 @@ function Section({ title, fetchUrl }) {
   }, [fetchUrl]);
 
   // ✅ Show 7 if collapsed, else show all
-  const displayedAlbums = showAll ? albums : albums.slice(0, 7);
+  const displayedAlbums = showAll ? albums : albums.slice(0, 8);
 
   return (
     <div className="section">
