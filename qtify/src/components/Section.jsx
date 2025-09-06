@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "./Card";
+import { Grid, Typography, Button } from "@mui/material";
+import AlbumCard from "./Card";
+import Carousel from "./Carousel"; // wrapper with arrows
 import "./Section.css";
 
 function Section({ title, fetchUrl }) {
@@ -19,31 +21,65 @@ function Section({ title, fetchUrl }) {
     fetchAlbums();
   }, [fetchUrl]);
 
-  // ✅ Show 7 if collapsed, else show all
-  const displayedAlbums = showAll ? albums : albums.slice(0, 8);
-
   return (
     <div className="section">
+      {/* Header */}
       <div className="section-header">
-        <h2>{title}</h2>
-        <button
-          className="toggle-btn"
+        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+          {title}
+        </Typography>
+        <Button
+          sx={{ color: "#3ef33e", fontWeight: 600, textTransform: "none" }}
           onClick={() => setShowAll(!showAll)}
         >
           {showAll ? "Collapse" : "Show all"}
-        </button>
+        </Button>
       </div>
 
-      <div className={showAll ? "grid-view" : "carousel-view"}>
-        {displayedAlbums.map((album) => (
-          <Card
-            key={album.id}
-            image={album.image}
-            follows={album.follows}
-            title={album.title}
-          />
-        ))}
-      </div>
+      {/* Albums */}
+      {showAll ? (
+        // 🔹 Responsive Grid
+        <Grid container spacing={2}>
+          {albums.map((album) => (
+            <Grid
+              item
+              xs={12}   // full width on mobile
+              sm={6}    // 2 per row on small screens
+              md={4}    // 3 per row on medium
+              lg={3}    // 4 per row on large
+              xl={2}    // 6 per row on extra-large
+              key={album.id}
+            >
+              <AlbumCard
+                image={album.image}
+                follows={album.follows}
+                title={album.title}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        // 🔹 Responsive Carousel
+        <Carousel>
+          {albums.map((album) => (
+            <div
+              key={album.id}
+              style={{
+                flex: "0 0 auto",
+                width: "160px",         // fixed card width
+                maxWidth: "90vw",       // don’t overflow on small screens
+                marginRight: "16px",
+              }}
+            >
+              <AlbumCard
+                image={album.image}
+                follows={album.follows}
+                title={album.title}
+              />
+            </div>
+          ))}
+        </Carousel>
+      )}
     </div>
   );
 }

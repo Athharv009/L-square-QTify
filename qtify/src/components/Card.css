@@ -1,17 +1,15 @@
 .card {
-  background-color: #000; /* keep black background */
-  border-radius: 12px;
+  width: 160px;
+  border-radius: 8px;
   overflow: hidden;
-  width: 180px; /* adjust size */
-  flex-shrink: 0;
-  color: white;
-  font-family: Arial, sans-serif;
+  background: #181818;
+  color: #fff;
 }
 
 .card-image img {
   width: 100%;
-  height: auto;
-  border-radius: 12px;
+  height: 160px;
+  object-fit: cover;
   display: block;
 }
 
@@ -20,17 +18,11 @@
   text-align: center;
 }
 
-.follows {
+.badge {
   display: inline-block;
-  background-color: #111;
-  border-radius: 20px;
-  padding: 4px 10px;
+  background: #000;
+  padding: 2px 8px;
+  border-radius: 12px;
   font-size: 12px;
-  margin-bottom: 6px;
-}
-
-.card-title {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
+  margin-bottom: 4px;
 }
